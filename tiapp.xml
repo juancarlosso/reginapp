@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ti:app xmlns:ti="http://ti.appcelerator.org">
+	<id>mx.com.jasoluciones.reginapp</id>
+	<name>ReginAPP</name>
+	<version>1</version>
+	<publisher>not specified</publisher>
+	<url>jasoluciones.com.mx</url>
+	<description></description>
+	<copyright>JASoluciones</copyright>
+	<icon>appicon.png</icon>
+	<fullscreen>false</fullscreen>
+	<navbar-hidden>false</navbar-hidden>
+	<guid>e614bc38-0b4f-4ccc-8059-95a9f7b48d8f</guid>
+	<property name="ti.ui.defaultunit" type="string">dp</property>
+	<property name="run-on-main-thread" type="bool">true</property>
+	<ios>
+		<enable-launch-screen-storyboard>true</enable-launch-screen-storyboard>
+		<use-app-thinning>true</use-app-thinning>
+		<plist>
+			<dict>
+				<key>UISupportedInterfaceOrientations~iphone</key>
+				<array>
+					<string>UIInterfaceOrientationPortrait</string>
+				</array>
+				<key>UISupportedInterfaceOrientations~ipad</key>
+				<array>
+					<string>UIInterfaceOrientationPortrait</string>
+					<string>UIInterfaceOrientationPortraitUpsideDown</string>
+					<string>UIInterfaceOrientationLandscapeLeft</string>
+					<string>UIInterfaceOrientationLandscapeRight</string>
+				</array>
+				<key>UIRequiresPersistentWiFi</key>
+				<false/>
+				<key>UIPrerenderedIcon</key>
+				<false/>
+				<key>UIStatusBarHidden</key>
+				<false/>
+				<key>UIStatusBarStyle</key>
+				<string>UIStatusBarStyleDefault</string>
+                <key>NSCameraUsageDescription</key>
+                <string>Usaremos la cámara para leer los códigos</string>
+			</dict>
+		</plist>
+	</ios>
+	<android xmlns:android="http://schemas.android.com/apk/res/android">
+		<manifest xmlns:android="http://schemas.android.com/apk/res/android" android:versionCode="1">
+           <uses-permission android:name="android.permission.CAMERA"/>
+           <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+           <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+		</manifest>
+	</android>
+	<modules>
+      <module platform="android">ti.notificationbanner</module>
+      <module platform="iphone">ti.notificationbanner</module>
+      <module platform="android">ti.barcode</module>
+      <module platform="iphone">ti.barcode</module>
+      <module platform="iphone">ti.webdialog</module>
+      <module platform="android">ti.webdialog</module>
+	</modules>
+	<deployment-targets>
+		<target device="android">true</target>
+		<target device="ipad">false</target>
+		<target device="iphone">true</target>
+	</deployment-targets>
+	<sdk-version>12.1.1.GA</sdk-version>
+</ti:app>
