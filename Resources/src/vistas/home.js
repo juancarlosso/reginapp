@@ -87,6 +87,10 @@ function ponerBuscador(scroll) {
     var Input = require("/src/ui/InputFlat");
     scroll.add(Ti.UI.createView({ width: Ti.UI.FILL, height: 20 }));
     var jBuscar = new Input("Buscar producto", '90%', 'A', 'N', 'buscar.png', 'barras.png');
+    jBuscar.input.returnKeyType = Titanium.UI.RETURNKEY_SEARCH;
+    jBuscar.input.addEventListener("return",function(){
+          require('src/vistas/inventario/datosProducto').show( jBuscar.input.value, 'texto' );
+    })
     scroll.add(jBuscar.view);
 }
 /*
@@ -168,6 +172,9 @@ function opcionesAdministrador(scroll) {
     vistaOpciones.add(btnVentas);
 
     var btnCortesias = new Button('48%',110,'/images/icos/menu/cortesias.png','Cortesias',colores.naranja,colores.blanco);
+    btnCortesias.addEventListener("singletap",function(){
+        require('src/vistas/inventario/cortesias').SolicitarProducto( );
+    });
     btnCortesias.right = 0;
     vistaOpciones.add(btnCortesias);
 
@@ -180,14 +187,14 @@ function opcionesAdministrador(scroll) {
 
     var btnEntradas = new Button('48%',110,'/images/icos/menu/entradas.png','Entradas',colores.amarillo,colores.blanco);
     btnEntradas.addEventListener("singletap",function(){
-        require('src/vistas/entradas').SolicitarProducto( );
+        require('src/vistas/inventario/entradas').SolicitarProducto( );
     });
     btnEntradas.left = 0;
     vistaOpciones2.add(btnEntradas);
 
     var btnSalidas = new Button('48%',110,'/images/icos/menu/salidas.png','Salidas',colores.rojo,colores.blanco);
     btnSalidas.addEventListener("singletap",function(){
-        require('src/vistas/salidas').SolicitarProducto( );
+        require('src/vistas/inventario/salidas').SolicitarProducto( );
     });
     btnSalidas.right = 0;
     vistaOpciones2.add(btnSalidas);

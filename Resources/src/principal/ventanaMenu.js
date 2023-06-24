@@ -2,6 +2,7 @@ var lblTotal;
 var lblEfectivo;
 var lblTarjeta;
 
+
 var controlPaginas;
 /*
  *
@@ -84,7 +85,7 @@ exports.MostrarMenu = MostrarMenu;
 function cambiarMenuActual() {
    apagarTodoElMenu();
    switch(paginaActual){
-      case 0: imgHome.setImage( "/images/menuInferior/homeON.png" ); break;
+      case 0: imgHome.image = "/images/menuInferior/homeON.png"; break;
       case 1:
       case 2:
       case 3:
@@ -101,7 +102,7 @@ function cambiarMenuActual() {
 *
 */
 function apagarTodoElMenu(){
-    imgHome.setImage("/images/menuInferior/homeOFF.png");
+    imgHome.image = "/images/menuInferior/homeOFF.png";
 }
 
 /*

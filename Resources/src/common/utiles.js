@@ -275,7 +275,7 @@ exports.textoJSON = function(texto){
     var json = JSON.parse(unescape(texto));
   }
   catch(e){
-    json = { "error": "ERROR DE DATOS", "mensaje": "ERROR DE DATOS" };
+    json = { "error": "Error de conectividad, intenta mas tarde", "mensaje": "Error de conectividad, intenta mas tarde" };
     console.log( texto );
   }
   return json;
@@ -318,8 +318,8 @@ exports.abrirEnlace = abrirEnlace;
 */
 exports.mostrarTituloContenido = function( vistaPrincipal, titulo, contenido, clr_titulo, clr_contenido ) {
 
-  clr_titulo    = typeof clr_titulo    !== 'undefined' ?  clr_titulo    : colores.azul1;
-  clr_contenido = typeof clr_contenido !== 'undefined' ?  clr_contenido : colores.gris1;
+  clr_titulo    = typeof clr_titulo    !== 'undefined' ?  clr_titulo    : colores.azul;
+  clr_contenido = typeof clr_contenido !== 'undefined' ?  clr_contenido : colores.negro;
 
   var contenedora = Ti.UI.createView({
       width: Ti.UI.FILL,
