@@ -8,12 +8,15 @@ global.winMenu        = require("src/principal/ventanaMenu");
 
 // Variables
 global.mainView;
-global.mainWindow;
+global.mainWin;
 
 // Control del Menu
 global.paginaActual = 0;
 global.controlPaginas = null;
 global.imgHome;
+global.imgNOSE1;
+global.imgNOSE2;
+global.imgConfig;
 
 
 // global.anchoPantalla = Ti.Platform.displayCaps.platformWidth;
