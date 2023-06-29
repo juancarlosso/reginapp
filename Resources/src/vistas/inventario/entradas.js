@@ -166,7 +166,7 @@ exports.Manual = Manual;
 */
 var buscaProducto = function( codigo ) {
    var json = Utiles.obtenerJSON('datos') ;
-   var Window = require("src/ui/window");
+   var Window = require("src/ui/Window");
    var win = new Window( 'S', 'Producto', colores.amarillo );
    var scroll = Ti.UI.createScrollView({ width: Ti.UI.FILL, height: Ti.UI.FILL, top: '10%', backgroundColor: colores.fondo2  });
    var contenedor = Ti.UI.createView({ width: Ti.UI.FILL, height: Ti.UI.SIZE, top:0, layout: 'vertical'});

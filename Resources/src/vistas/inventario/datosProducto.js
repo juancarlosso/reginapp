@@ -12,7 +12,7 @@
 var show = function( textoBuscar, tipo ) {
 
   var json = Utiles.obtenerJSON('datos') ;
-     var Window = require("src/ui/window");
+     var Window = require("src/ui/Window");
      var win = new Window( 'S', 'Buscar Producto', colores.azul );
      var scroll = Ti.UI.createScrollView({ width: Ti.UI.FILL, height: Ti.UI.FILL, top: '10%', backgroundColor: colores.fondo2  });
      var contenedor = Ti.UI.createView({ width: Ti.UI.FILL, height: Ti.UI.SIZE, top:0, layout: 'vertical'});
@@ -123,7 +123,7 @@ function mostrarProducto(producto,winResultados){
   var existencia = producto.existencia;
   var Button = require('src/ui/Button');
   var Input = require('src/ui/InputLabel');
-  var Window = require("src/ui/window");
+  var Window = require("src/ui/Window");
   var win = new Window( 'S', 'Datos del Producto', colores.verde );
   var scroll = Ti.UI.createScrollView({ width: Ti.UI.FILL, height: Ti.UI.FILL, top: '10%', backgroundColor: colores.fondo2  });
   var contenedor = Ti.UI.createView({ width: Ti.UI.FILL, height: Ti.UI.SIZE, top:0, layout: 'vertical'});
