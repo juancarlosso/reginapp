@@ -32,8 +32,10 @@ var MostrarMenu = function(mainView, win) {
     });
     mainView.add(contenedor);
 
-   var vistaDummy = Ti.UI.createView({ width: Ti.UI.FILL, height: Ti.UI.FILL });
-   var vistaConfig = require('/src/vistas/configuracion/principal').show();
+   var vistaDummy  = Ti.UI.createView({ width: Ti.UI.FILL, height: Ti.UI.FILL });
+   var vistaDummy2 = Ti.UI.createView({ width: Ti.UI.FILL, height: Ti.UI.FILL });
+   var objConfig   = require("/src/vistas/configuracion/principal");
+   var vistaConfig = new objConfig();
 
    // creamos el controlador de paginas
    controlPaginas = Ti.UI.createScrollableView({
@@ -41,7 +43,7 @@ var MostrarMenu = function(mainView, win) {
        scrollingEnabled: false,
        width: Ti.UI.FILL,
        height: Ti.UI.FILL,
-       views: [ vistaHome, vistaDummy, vistaDummy, vistaDummy, vistaConfig ],
+       views: [ vistaHome, vistaDummy, vistaDummy2, vistaConfig ],
        showPagingControl: false
    });
    contenedor.add(controlPaginas);
@@ -81,7 +83,7 @@ var MostrarMenu = function(mainView, win) {
 
    //
    var contieneConfig = Ti.UI.createView({ width: '25%', height: Ti.UI.FILL  });
-   contieneConfig.addEventListener("singletap", function(){  cambiarPagina(4); cambiarMenuActual(); })
+   contieneConfig.addEventListener("singletap", function(){  cambiarPagina(3); cambiarMenuActual(); })
    imgConfig = Ti.UI.createImageView({ image: "/images/menuInferior/noseOFF.png", height: 27, width: 27 });
    contieneConfig.add(imgConfig);
    contenedorMenu.add(contieneConfig);
@@ -137,6 +139,7 @@ function apagarTodoElMenu(){
 */
 function cambiarPagina(pagina){
 
+   console.log( pagina + " - " + paginaActual );
    if(pagina==paginaActual){
      return false;
    }

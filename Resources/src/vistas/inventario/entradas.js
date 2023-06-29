@@ -47,14 +47,28 @@ var SolicitarProducto = function( ) {
         borderRadius: 10,
         borderWidth: 1,
         opacity: 0.5,
-        width: 220,
+        width: '30%',
         height: 30,
-        top: 35
+        top: 35,
+        left: 10,
     });
     cancelButton.addEventListener('click', function () {
         Barcode.cancel();
     });
     overlay.add(cancelButton);
+
+    var manualButton = Ti.UI.createButton({
+         title: 'Manual', textAlign: 'center',
+         color: '#000', backgroundColor: '#fff', style: 0,
+         font: { fontWeight: 'bold', fontSize: 16 },
+         borderColor: '#000', borderRadius: 10, borderWidth: 1,
+         opacity: 0.5, width: '30%', height: 30, top: 35,right: 10,
+     });
+     manualButton.addEventListener('click', function () {
+         Barcode.cancel();
+         Manual();
+     });
+     overlay.add(manualButton);
 
     if (Ti.Media.hasCameraPermissions()) {
         activarLector();
@@ -83,6 +97,64 @@ var SolicitarProducto = function( ) {
 
 }
 exports.SolicitarProducto = SolicitarProducto;
+
+/*
+*
+* @brief
+* @author Juan Carlos Salinas Ojeda
+* @param string
+* @return
+*
+*/
+var Manual = function() {
+   var vistaCodigo = Ti.UI.createView({
+        left: 10, right: 10,
+        height: Ti.UI.SIZE,
+    });
+    var codigoCaptura = Ti.UI.createTextField({
+         autocapitalization: false,
+         font: { fontFamily: params.fuente_opensans, fontSize: 14 },
+         tintColor: colores.verde,
+         autocorrect: false,
+         color: colores.verde,
+         left: 10,
+         right: 10,
+         height: '38dp',
+    });
+    vistaCodigo.add(codigoCaptura);
+    var dialog = Ti.UI.createAlertDialog({
+      title: 'Captura el código',
+      androidView: params.isAndroid ? vistaCodigo : null ,
+      style: params.isAndroid ? null : Ti.UI.iOS.AlertDialogStyle.PLAIN_TEXT_INPUT,
+      buttonNames: ['Cancelar', 'Aceptar']
+    });
+    dialog.addEventListener("click",function(e){
+         if(e.index){
+            if(params.isAndroid){
+              if(codigoCaptura.value==''){
+                Utiles.Alerta("Es necesario que captures el código");
+                return false
+              }
+            }
+            else{
+              if (e.text == "") {
+                Utiles.Alerta("Es necesario que captures el código");
+                return false
+              }
+            }
+            var codigoValidar;
+            if(params.isAndroid){
+               codigoValidar = codigoCaptura.value;
+            }
+            else{
+              codigoValidar = e.text;
+            }
+            buscaProducto( codigoValidar );
+         }
+    });
+    dialog.show();
+}
+exports.Manual = Manual;
 
 /*
 *
@@ -390,3 +462,10 @@ function RegistrarAltaEnServidor( win, producto, jCantidad){
              cantidad: jCantidad.input.value,
       });
 }
+
+
+
+
+/*
+
+*/

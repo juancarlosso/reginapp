@@ -1,5 +1,5 @@
 
-var show = function() {
+function Principal() {
 
     var principal = Ti.UI.createView({
         width: Ti.UI.FILL,
@@ -74,7 +74,7 @@ var show = function() {
 
     return principal;
 }
-exports.show = show;
+module.exports = Principal;
 
 /*
 *
